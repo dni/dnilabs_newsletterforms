@@ -1,5 +1,3 @@
-plugin.tx_dnilabsnewsletterforms { }
-
 config.tx_extbase{
   persistence{
     classes{
@@ -8,6 +6,7 @@ config.tx_extbase{
           tableName = tt_address
           columns {
             module_sys_dmail_html.mapOnProperty = html
+            hidden.mapOnProperty = hidden
           }
         }
       }

@@ -5,7 +5,7 @@ class SubscribePostProcessor extends \TYPO3\CMS\Form\PostProcess\AbstractPostPro
   implements \TYPO3\CMS\Form\PostProcess\PostProcessorInterface {
 
     /**
-     * @var \TYPO3\TtAddress\Domain\Repository\AddressRepository
+     * @var \Dnilabs\DnilabsNewsletterforms\Domain\Repository\AddressRepository
      * @inject
      */
     protected $addressRepository;
@@ -66,13 +66,9 @@ class SubscribePostProcessor extends \TYPO3\CMS\Form\PostProcess\AbstractPostPro
         $address = $this->addressRepository->findOneByEmail($this->args["email"]);
 
         if ($address) {
-          die("exists");
-          // exists so set User to hidden = 0 again
-          $address->setHidden(0);
-          $this->addressRepository->update($address);
+          // exists so do nothing
         } else {
           // create new address
-          /* $address = new \TYPO3\TtAddress\Domain\Model\Address; */
           $address = new \Dnilabs\DnilabsNewsletterforms\Domain\Model\Address;
           $address->setPid($this->typoScript["pid"]);
           $address->setHtml(1);
@@ -82,13 +78,5 @@ class SubscribePostProcessor extends \TYPO3\CMS\Form\PostProcess\AbstractPostPro
           $this->addressRepository->add($address);
         }
         $this->persistenceManager->persistAll();
-    }
-
-
-    /**
-     * @return void
-     */
-    protected function render() {
-        return;
     }
 }

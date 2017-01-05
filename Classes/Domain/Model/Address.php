@@ -8,6 +8,11 @@ class Address extends \TYPO3\TtAddress\Domain\Model\Address {
     protected $html;
 
     /**
+     * @var boolean
+     */
+    protected $hidden;
+
+    /**
      * __construct
      */
     public function __construct() {
@@ -28,6 +33,22 @@ class Address extends \TYPO3\TtAddress\Domain\Model\Address {
      */
     public function getHtml() {
         return $this->html;
+    }
+
+    /**
+     * @param string $hidden
+     * @return void
+     */
+    public function setHidden($hidden)
+    {
+        $this->hidden = $hidden;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function getHidden() {
+        return $this->hidden;
     }
 
 }

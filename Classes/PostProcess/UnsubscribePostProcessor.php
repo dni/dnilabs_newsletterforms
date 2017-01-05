@@ -5,7 +5,7 @@ class UnsubscribePostProcessor extends \TYPO3\CMS\Form\PostProcess\AbstractPostP
   implements \TYPO3\CMS\Form\PostProcess\PostProcessorInterface {
 
     /**
-     * @var \TYPO3\TtAddress\Domain\Repository\AddressRepository
+     * @var \Dnilabs\DnilabsNewsletterforms\Domain\Repository\AddressRepository
      * @inject
      */
     protected $addressRepository;
@@ -52,8 +52,7 @@ class UnsubscribePostProcessor extends \TYPO3\CMS\Form\PostProcess\AbstractPostP
         $this->addressRepository->setDefaultQuerySettings($querySettings);
         $address = $this->addressRepository->findOneByEmail($this->args["email"]);
         if ($address) {
-          $address->setHidden(1);
-          $this->addressRepository->update($address);
+          $this->addressRepository->remove($address);
           $this->persistenceManager->persistAll();
         }
     }
