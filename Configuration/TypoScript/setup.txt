@@ -1,0 +1,11 @@
+plugin.tx_dnilabsnewsletterforms {
+  persistence {
+    classes {
+      Dnilabs\DnilabsNewsletterforms\Domain\Model\Address {
+        mapping {
+          tableName = tt_address
+        }
+      }
+    }
+  }
+}
