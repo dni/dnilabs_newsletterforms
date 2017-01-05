@@ -1,9 +1,14 @@
-plugin.tx_dnilabsnewsletterforms {
-  persistence {
-    classes {
+plugin.tx_dnilabsnewsletterforms { }
+
+config.tx_extbase{
+  persistence{
+    classes{
       Dnilabs\DnilabsNewsletterforms\Domain\Model\Address {
         mapping {
           tableName = tt_address
+          columns {
+            module_sys_dmail_html.mapOnProperty = html
+          }
         }
       }
     }

@@ -5,7 +5,7 @@ class Address extends \TYPO3\TtAddress\Domain\Model\Address {
     /**
      * @var boolean
      */
-    protected $module_sys_dmail_html;
+    protected $html;
 
     /**
      * __construct
@@ -15,19 +15,19 @@ class Address extends \TYPO3\TtAddress\Domain\Model\Address {
     }
 
     /**
-     * @param string $module_sys_dmail_html
+     * @param string $html
      * @return void
      */
-    public function setHtml($module_sys_dmail_html)
+    public function setHtml($html)
     {
-        $this->module_sys_dmail_html = $module_sys_dmail_html;
+        $this->html = $html;
     }
 
     /**
      * @return boolean
      */
     public function getHtml() {
-        return $this->module_sys_dmail_html;
+        return $this->html;
     }
 
 }
